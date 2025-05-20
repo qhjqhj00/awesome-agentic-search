@@ -7,9 +7,9 @@
 
 ## 📚 Papers
 For each paper, we provide the following information:
- > 👨‍🎓 **First Author** · 📧 **Corresponding Author (Last Author if not specified)** · 🏛️ **First Organization** · 📊 **Dataset**
-
- 🔦 **Note**: Please submit a PR if we missed anything!
+ > 👨‍🎓 **First Author** · 📧 **Corresponding Author (Last Author if not specified)** · 🏛️ **First Organization** · 📊 **Dataset** 
+ 
+  *Note: Please submit a PR if we missed anything!*
 
 📊 Dataset Types:
 
@@ -53,6 +53,11 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
  > 👨‍🎓 **Hao Sun** · 📧 **Zile Qiao, Jiayan Guo, Yan Zhang** · 🏛️ **Tongyi Lab** \
  > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B / 7B, s LLaMA-3.2-3B · 🎯 **Training**: REINFORCE, GRPO, PPO
 
+[Chain-of-Retrieval Augmented Generation](https://arxiv.org/abs/2501.14342) [![[code]](https://img.shields.io/github/stars/microsoft/LMOps)](https://github.com/microsoft/LMOps/)
+
+ > 👨‍🎓 **Liang Wang** · 📧 **Furu Wei** · 🏛️ **MSRA** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Llama-3.1-8B-Instruct · 🎯 **Training**: REINFORCE, GRPO, PPO
+
 [IKEA: Reinforced Internal-External Knowledge Synergistic Reasoning for Efficient Adaptive Search Agent](https://arxiv.org/abs/2505.07596) [![[code]](https://img.shields.io/github/stars/hzy312/knowledge-r1)](https://github.com/hzy312/knowledge-r1)
 
  > 👨‍🎓 **Ziyang Huang** · 📧 **Kang Liu** · 🏛️ **IA, CAS** \
@@ -69,11 +74,20 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 👨‍🎓 **Yaorui Shi** · 📧 **Xiang Wang** · 🏛️ **USTC** \
 > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B · 🎯 **Training**: GRPO
 
+
+
 ### 🔄 Workflow-based
 [Search-o1: Agentic Search-Enhanced Large Reasoning Models](https://arxiv.org/abs/2501.05366):  [![[code]](https://img.shields.io/github/stars/sunnynexus/Search-o1?style=social)](https://github.com/sunnynexus/Search-o1)
 
  > 👨‍🎓 **Xiaoxi Li** · 📧 **Zhicheng Dou** · 🏛️ **GSAI, RUC** \
  > 📊 **Dataset**: General QA, Multi-Hop QA, Complex Task, Math & Coding · 🤖 **Model**: QwQ-32B-Preview
+
+ [Agentic Reasoning: Reasoning LLMs with Tools for the Deep Research](https://arxiv.org/pdf/2502.04644) [![[code]](https://img.shields.io/github/stars/theworldofagents/Agentic-Reasoning)](https://github.com/theworldofagents/Agentic-Reasoning)
+
+> 👨‍🎓 **Junde Wu** · 📧 **Yuyuan Liu** · 🏛️ **Oxford University** \
+> 📊 **Dataset**: Complex Task · 🤖 **Model**: APIs
+
+
 ###  🔧 Tool Using
 [OTC: Optimal Tool Calls via Reinforcement Learning](https://arxiv.org/pdf/2504.14870)
 
@@ -86,7 +100,7 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
  > 👨‍🎓 **Jinming Wu** · 📧 **Zejun Ma** · 🏛️ **BUPT** \
  > 📊 **Dataset**: VQA · 🤖 **Model**: Qwen2.5-VL-Instruct-3B/7B · 🎯 **Training**: GRPO
 
-### 📊 Evaluation and Dataset
+<!-- ### 📊 Evaluation and Dataset -->
 
 ### 🏢 Industry Solutions
 
