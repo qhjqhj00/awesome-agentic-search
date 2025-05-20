@@ -6,28 +6,86 @@
 > 🚧 **Note**: This project is under intensive development and will be rapidly updated with new content, features and resources. We welcome you to join our community - please feel free to open issues, submit PRs, leave comments and ⭐ star the repo to show your support! Together we can build a comprehensive resource for advancing agentic search.
 
 ## 📚 Papers
+For each paper, we provide the following information:
+ > 👨‍🎓 **First Author** · 📧 **Corresponding Author (Last Author if not specified)** · 🏛️ **First Organization** · 📊 **Dataset**
+
+ 🔦 **Note**: Please submit a PR if we missed anything!
+
+📊 Dataset Types:
+
+**General QA**: NQ, TriviaQA, PopQA
+
+**Multi-Hop QA**: HotpotQA, 2wiki, Musique, Bamboogle
+
+**Complex Task**: GPQA, GAIA, WebWalker QA, Humanity's Last Exam (HLE)
+
+**Report Generation**: Glaive
+
+**Math & Coding**: AIME, MATH500, AMC, LiveCodeBench
 
 ### 🎓 Training-based
-[Search-R1](https://arxiv.org/abs/2503.09516): Train your LLMs to reason and call a search engine with reinforcement learning ![GitHub Repo stars](https://img.shields.io/github/stars/PeterGriffinJin/Search-R1?style=social)
+[Search-R1: Training LLMs to Reason and Leverage Search
+Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub Repo stars](https://img.shields.io/github/stars/PeterGriffinJin/Search-R1?style=social)
 
-[WebThinker](https://arxiv.org/abs/2504.21776): A deep research agent designed to enhance large reasoning models (LRMs) by enabling autonomous web exploration and report generation ![GitHub Repo stars](https://img.shields.io/github/stars/RUC-NLPIR/WebThinker?style=social)
+ > 👨‍🎓 **Bowen Jin** · 📧 **Jiawei Han** · 🏛️ **UIUC** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B / 7B · 🎯 **Training**: GRPO, PPO
 
-[DeepResearcher](https://github.com/GAIR-NLP/DeepResearcher): Scaling Deep Research via Reinforcement Learning in Real-world Environments. [![[code]](https://img.shields.io/github/stars/GAIR-NLP/DeepResearcher)](https://github.com/GAIR-NLP/DeepResearcher)
 
-[Multimodal-Search-R1](https://github.com/EvolvingLMMs-Lab/multimodal-search-r1): Incentivizing LMMs to Search. [![[code]](https://img.shields.io/github/stars/EvolvingLMMs-Lab/multimodal-search-r1)](https://github.com/EvolvingLMMs-Lab/multimodal-search-r1)
+[WebThinker: Empowering Large Reasoning Models with Deep Research Capability](https://arxiv.org/abs/2504.21776):![GitHub Repo stars](https://img.shields.io/github/stars/RUC-NLPIR/WebThinker?style=social)
 
-[OTC](https://arxiv.org/pdf/2504.14870): Optimal Tool Calls via Reinforcement Learning.
+ > 👨‍🎓 **Xiaoxi Li** · 📧 **Zhicheng Dou** · 🏛️ **GSAI, RUC** \
+ > 📊 **Dataset**: Complex Task, Report Generation · 🤖 **Model**: QwQ 32B · 🎯 **Training**: SFT, DPO
 
-[R1-Searcher](https://arxiv.org/abs/2503.05592): Incentivizing the Search Capability in LLMs via Reinforcement Learning. [![[code]](https://img.shields.io/github/stars/RUCAIBox/R1-Searcher)](https://github.com/RUCAIBox/R1-Searcher)
 
-[ZeroSearch](https://github.com/Alibaba-NLP/ZeroSearch): Incentivize the Search Capability of LLMs without Searching. [![[code]](https://img.shields.io/github/stars/Alibaba-NLP/ZeroSearch)](https://github.com/Alibaba-NLP/ZeroSearch)
+[DeepResearcher: Scaling Deep Research via Reinforcement Learning in Real-world Environments](https://arxiv.org/abs/2504.03160) [![[code]](https://img.shields.io/github/stars/GAIR-NLP/DeepResearcher)](https://github.com/GAIR-NLP/DeepResearcher)
 
-[IKEA](https://github.com/hzy312/knowledge-r1): Reinforced Internal-External Knowledge Synergistic Reasoning for Efficient Adaptive Search Agent. [![[code]](https://img.shields.io/github/stars/hzy312/knowledge-r1)](https://github.com/hzy312/knowledge-r1)
+ > 👨‍🎓 **Yuxiang Zheng** · 📧 **Pengfei Liu** · 🏛️ **SJTU** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-7B · 🎯 **Training**: GRPO
 
-[Scent of Knowledge](https://arxiv.org/abs/2505.09316): Optimizing Search-Enhanced Reasoning with Information Foraging.
+
+[R1-Searcher: Incentivizing the Search Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2503.05592) [![[code]](https://img.shields.io/github/stars/RUCAIBox/R1-Searcher)](https://github.com/RUCAIBox/R1-Searcher)
+
+ > 👨‍🎓 **Huatong Song** · 📧 **Wayne Xin Zhao** · 🏛️ **GSAI, RUC** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-7B, Llama-3.1-8B · 🎯 **Training**: SFT, GRPO, REINFORCE++
+
+[ZeroSearch: Incentivize the Search Capability of LLMs without Searching](https://arxiv.org/abs/2505.04588) [![[code]](https://img.shields.io/github/stars/Alibaba-NLP/ZeroSearch)](https://github.com/Alibaba-NLP/ZeroSearch)
+
+ > 👨‍🎓 **Hao Sun** · 📧 **Zile Qiao, Jiayan Guo, Yan Zhang** · 🏛️ **Tongyi Lab** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B / 7B, s LLaMA-3.2-3B · 🎯 **Training**: REINFORCE, GRPO, PPO
+
+[IKEA: Reinforced Internal-External Knowledge Synergistic Reasoning for Efficient Adaptive Search Agent](https://arxiv.org/abs/2505.07596) [![[code]](https://img.shields.io/github/stars/hzy312/knowledge-r1)](https://github.com/hzy312/knowledge-r1)
+
+ > 👨‍🎓 **Ziyang Huang** · 📧 **Kang Liu** · 🏛️ **IA, CAS** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B / 7B · 🎯 **Training**: GRPO
+
+[Scent of Knowledge: Optimizing Search-Enhanced Reasoning with Information Foraging](https://arxiv.org/abs/2505.09316)
+
+> 👨‍🎓 **Hongjin Qian** · 📧 **Zheng Liu** · 🏛️ **BAAI** \
+> 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B / 7B · 🎯 **Training**: GRPO, PPO
+
+
+[Search and Refine During Think: Autonomous Retrieval-Augmented Reasoning of LLMs](https://arxiv.org/pdf/2505.11277) [![[code]](https://img.shields.io/github/stars/syr-cn/AutoRefine)](https://github.com/syr-cn/AutoRefine)
+
+> 👨‍🎓 **Yaorui Shi** · 📧 **Xiang Wang** · 🏛️ **USTC** \
+> 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B · 🎯 **Training**: GRPO
 
 ### 🔄 Workflow-based
-[Search-o1](https://arxiv.org/abs/2501.05366): Agentic Search-Enhanced Large Reasoning Models - A framework that enhances large reasoning models (LRMs) by integrating an agentic retrieval-augmented generation (RAG) mechanism and a Reason-in-Documents module. [![[code]](https://img.shields.io/github/stars/sunnynexus/Search-o1?style=social)](https://github.com/sunnynexus/Search-o1)
+[Search-o1: Agentic Search-Enhanced Large Reasoning Models](https://arxiv.org/abs/2501.05366):  [![[code]](https://img.shields.io/github/stars/sunnynexus/Search-o1?style=social)](https://github.com/sunnynexus/Search-o1)
+
+ > 👨‍🎓 **Xiaoxi Li** · 📧 **Zhicheng Dou** · 🏛️ **GSAI, RUC** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA, Complex Task, Math & Coding · 🤖 **Model**: QwQ-32B-Preview
+###  🔧 Tool Using
+[OTC: Optimal Tool Calls via Reinforcement Learning](https://arxiv.org/pdf/2504.14870)
+
+ > 👨‍🎓 **Hongru Wang** · 📧 **Heng Ji** · 🏛️ **CUHK** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA, Math & Coding · 🤖 **Model**: Qwen-2.5-3B / 7B· 🎯 **Training**: GRPO, PPO
+
+### 🖼️ Multi-Modal
+[Multimodal-Search-R1: Incentivizing LMMs to Search](https://kimingng.notion.site/MMSearch-R1-Incentivizing-LMMs-to-Search-1bcce992031880b2bc64fde13ef83e2a) [![[code]](https://img.shields.io/github/stars/EvolvingLMMs-Lab/multimodal-search-r1)](https://github.com/EvolvingLMMs-Lab/multimodal-search-r1)
+
+ > 👨‍🎓 **Jinming Wu** · 📧 **Zejun Ma** · 🏛️ **BUPT** \
+ > 📊 **Dataset**: VQA · 🤖 **Model**: Qwen2.5-VL-Instruct-3B/7B · 🎯 **Training**: GRPO
+
 ### 📊 Evaluation and Dataset
 
 ### 🏢 Industry Solutions
