@@ -1,9 +1,27 @@
 # 🔍 Awesome Agentic Search
+<h4 align="center">
+<p>
+<a href="#objectives">🎯 Objectives</a> |
+<a href="#papers">📚 Papers</a> |
+<a href="#slides">📊 Slides</a> |
+<a href="#demo">🎮 Demo</a> |
+<a href="#arena">🏆 Arena</a> |
+<a href="#gym">🏋️ Gym</a>
+</p>
+</h4>
+🤖 Agentic search is an advanced AI approach where autonomous agents actively plan and execute multi-step, iterative searches to decompose complex queries, evaluate relevance, and synthesize responses—transforming them from passive retrievers into dynamic, reasoning-driven researchers.
 
-🤖 Agentic search refers to an advanced AI approach where autonomous agents plan and execute multi-step search processes to address complex queries. Unlike traditional search methods that provide static results, agentic search involves dynamic workflows where the AI agent decomposes a query, conducts iterative searches, evaluates information relevance, and synthesizes findings into coherent responses. This methodology enhances deep research capabilities, supports search-enhanced reasoning, and enables interleaved workflows, positioning AI agents as active researchers rather than passive information retrievers.
+## 🎯 Objectives
+> 🚧 **Note**: This project is evolving rapidly—join the community by opening issues, submitting PRs, leaving comments, or  ⭐ starring the repo to help build a leading resource for agentic search.
 
+- **Research Collection**: Curate and categorize comprehensive research work in agentic search, including papers, code implementations, and empirical findings
 
-> 🚧 **Note**: This project is under intensive development and will be rapidly updated with new content, features and resources. We welcome you to join our community - please feel free to open issues, submit PRs, leave comments and ⭐ star the repo to show your support! Together we can build a comprehensive resource for advancing agentic search.
+- **Interactive Demos**: Build demonstration pages to showcase different agentic search methods and allow hands-on exploration of their capabilities
+
+- **Evaluation Arena**: Develop a Python toolkit for systematic evaluation and benchmarking of agentic search methods across diverse tasks and metrics
+
+- **Training Gym**: Create a Python framework for training and optimizing agentic search models, including reinforcement learning and other approaches
+
 
 ## 📚 Papers
 For each paper, we provide the following information:
@@ -116,17 +134,23 @@ Jina AI: https://jina.ai/deepsearch/
 
 Metasota: https://metaso.cn/
 
+## 🎮 Demo
+We are building a demo page to showcase different agentic search methods and allow hands-on exploration of their capabilities. Each demo will be integrated into a standardized retrieval and web browser interface with comparable settings, enabling comprehensive and fair comparisons across various approaches. This systematic evaluation will help identify strengths and limitations of different methods and advance the state-of-the-art in agentic search.
+
 ## 📝 Slides
 We maintain a collection of 📊 paper presentation slides on Overleaf to facilitate learning and knowledge sharing in the agentic search community. Each presentation consists of 3-5 slides that concisely introduce key aspects of a paper, including motivation, methodology, and main results. These slides serve as quick references for understanding important works in the field and can be used for self-study, teaching, or research presentations.
 
 🔗 Check out our slides collection: [Agentic Search Paper Slides](https://www.overleaf.com/read/dhbksrdxswps#3990a3)
 
-## 📊 Evaluation
-
-We maintain a comprehensive evaluation table comparing different agentic search methods across key metrics like search efficiency, result quality, and reasoning capabilities. The table will be regularly updated as new methods and benchmarks emerge to help researchers track progress in the field.
-
 ## 🏆 Arena
-We are building an arena page to benchmark different agentic search methods using standardized retrieval and web browser interfaces. This will enable fair comparisons between various approaches and help advance the state-of-the-art in agentic search.
+We are building an arena page to benchmark different agentic search methods in a unified evaluation framework. All methods will be integrated into standardized retrieval and web browser interfaces with comparable settings, enabling comprehensive and fair comparisons across various approaches. This systematic evaluation will help identify strengths and limitations of different methods and advance the state-of-the-art in agentic search.
+
+## 🏋️ Gym
+We are organizing a collection of optimization frameworks and training approaches used in agentic search, including reinforcement learning methods like GRPO and PPO, as well as supervised fine-tuning techniques. This will help researchers understand and implement effective training strategies for their agentic search models.
+
+Stay tuned for detailed tutorials and code examples on training agentic search systems!
+
+
 
 ## 🤝 Contributing
 We welcome contributions to this repository! If you have any suggestions or feedback, please feel free to open an issue or submit a pull request.
