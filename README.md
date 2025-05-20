@@ -1,12 +1,12 @@
 # 🔍 Awesome Agentic Search
 <h4 align="center">
 <p>
-<a href="#objectives">🎯 Objectives</a> |
-<a href="#papers">📚 Papers</a> |
-<a href="#slides">📊 Slides</a> |
-<a href="#demo">🎮 Demo</a> |
-<a href="#arena">🏆 Arena</a> |
-<a href="#gym">🏋️ Gym</a>
+<a href="#-objectives">🎯 Objectives</a> |
+<a href="#-papers">📚 Papers</a> |
+<a href="#-slides">📊 Slides</a> |
+<a href="#-demo">🎮 Demo</a> |
+<a href="#-arena">🏆 Arena</a> |
+<a href="#-gym">🏋️ Gym</a>
 </p>
 </h4>
 🤖 Agentic search is an advanced AI approach where autonomous agents actively plan and execute multi-step, iterative searches to decompose complex queries, evaluate relevance, and synthesize responses—transforming them from passive retrievers into dynamic, reasoning-driven researchers.
