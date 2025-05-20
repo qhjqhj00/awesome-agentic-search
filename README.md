@@ -1,4 +1,4 @@
-# 🔍 Awesome Agentic Search
+# <div align="center">🔍 Awesome Agentic Search</div>
 <h4 align="center">
 <p>
 <a href="#-objectives">🎯 Objectives</a> |
