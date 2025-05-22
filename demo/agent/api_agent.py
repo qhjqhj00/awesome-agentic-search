@@ -237,6 +237,23 @@ class Agent(BaseGPTAgent):
             )
         return _completion.choices[0].message.content
     
+    def stream_plain_completion(self, prompt: str, max_output_tokens: int=512, stop: list=None):
+        """Stream the chat completion response token by token"""
+        stream = self.client.completions.create(
+            prompt=prompt,
+            temperature=self.temperature,
+            model=self.model,
+            max_tokens=max_output_tokens,
+            stream=True,
+            stop=stop
+        )
+        
+        response = ""
+        for chunk in stream:
+            if chunk.choices[0].text is not None:
+                response += chunk.choices[0].text
+                yield chunk.choices[0].text
+        
     def stream_completion(self, messages: list, max_completion_tokens: int=512):
         """Stream the chat completion response token by token"""
         stream = self.client.chat.completions.create(

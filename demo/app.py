@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title="🧠 Agentic Chat Demo", page_icon="🧠", layout="wide")
+st.set_page_config(page_title="Agentic Chat Demo", page_icon="🧠", layout="wide")
 
 
 from agent.api_agent import Agent
@@ -50,24 +50,20 @@ if prompt := st.chat_input("请输入你的问题..."):
     # 选择调用对象
     if use_generator and use_retriever:
         # 预留 rag_pipeline
-        with st.chat_message("assistant"):
-            st.markdown("_RAG Pipeline 暂未实现_")
-            raise ValueError("RAG Pipeline 暂未实现")
+        if mode == "RAG":
+            rag_manager(st.session_state.messages_frontend, st.session_state.messages_backend, generator, retriever, generator_name, prompt, mode, file_path)
+        elif mode == "Agentic-Search":
+            agentic_search_manager(st.session_state.messages_frontend, generator, retriever, generator_name, prompt, mode)
+        else:
+            raise ValueError("Pipeline 暂未实现")
     elif use_generator:
         # 使用 generator agent 流式输出
         with st.chat_message("assistant"):
-            response_placeholder = st.empty()
-            response = ""
             # 构造历史消息用于多轮对话
-            backend_history_manager(st.session_state.messages_backend, generator_name, prompt, mode, file_path)
-            # 流式输出
-            for chunk in generator.stream_completion(st.session_state.messages_backend):
-                response += chunk
-                response_placeholder.markdown(response + "▌")
-            response_placeholder.markdown(response)
-            st.session_state.messages_frontend.append({"role": "assistant", "content": response})
-            st.session_state.messages_backend.append({"role": "assistant", "content": response})
-            st.rerun()
+            if generator_name == "omnigen-v2":
+                omnigen_generate_manager(st.session_state.messages_frontend, prompt, generator, mode, file_path)
+            else:
+                generate_manager(st.session_state.messages_backend, st.session_state.messages_frontend, generator, generator_name, prompt, mode, file_path)
     else:
         with st.chat_message("assistant"):
             st.markdown("_请至少选择 Generator_")

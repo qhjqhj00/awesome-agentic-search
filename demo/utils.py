@@ -18,16 +18,17 @@ def set_chat_message_style():
             unsafe_allow_html=True,
         )
 
-def show_file(file_path: str, type: str):
-    left_co, cent_co,last_co = st.columns(3)
-    with last_co:
+def show_file(file_path: str, type: str, role: str="user"):
+    left_co, cent_co, last_co = st.columns(3)
+    column = last_co if role == "user" else left_co
+    with column:
         if type == "image":
             st.image(file_path)
         elif type == "audio":
             st.audio(file_path)
         else:
             st.markdown(file_path)
-
+                
 def display_chat_messages():
         
     for msg in st.session_state.messages_frontend:
@@ -35,13 +36,18 @@ def display_chat_messages():
             if isinstance(msg["content"], list):
                 for item in msg["content"]:
                     if item.get("type") == "image_url":
-                        show_file(item["image_url"]["url"], "image")
+                        show_file(item["image_url"]["url"], "image", msg["role"])
                     elif item.get("type") == "audio_url":
-                        show_file(item["audio_url"]["url"], "audio")
+                        show_file(item["audio_url"]["url"], "audio", msg["role"])
                     else:
                         st.markdown(item["text"])
             else:
                 st.markdown(msg["content"])
+            if msg.get("sources"):
+                cols = st.columns(3)
+                for i, source in enumerate(msg["sources"]):
+                    with cols[i % 3].expander(f"[{i+1}] **{source['title']}**"):
+                        st.markdown(source["text"])
 
 
 def mode_check(generator_name: str, retriever_name: str = None) -> tuple[bool, str]:
@@ -64,6 +70,10 @@ def mode_check(generator_name: str, retriever_name: str = None) -> tuple[bool, s
     )
 
     if mode == "Generation":
+        not_allowed_models = ["Search-R1-3B", "WebThinker"]
+        if generator_name in not_allowed_models:
+            st.sidebar.error("Generation模式不支持Agentic-Search模型")
+            return False, "Generation模式不支持Agentic-Search模型"
         # Generation mode only needs a generator
         if generator_name is None:
             st.sidebar.error("Generation模式需要选择一个generator")
@@ -81,6 +91,9 @@ def mode_check(generator_name: str, retriever_name: str = None) -> tuple[bool, s
         return mode, ""
         
     elif mode == "Agentic-Search":
+        if retriever_name is None:
+            st.sidebar.error("Agentic-Search模式需要选择retriever")
+            return False, "Agentic-Search模式需要选择retriever"
         # Agentic-Search mode needs specific models
         allowed_models = ["Search-R1-3B", "WebThinker"]
         if generator_name not in allowed_models:
@@ -163,9 +176,16 @@ def frontend_history_manager(history, prompt: str, model_name: str, file_path: s
             history.append({"role": "user", "content": prompt})
 
 
-def backend_history_manager(history, generator_name: str, prompt: str, mode: str, file_path: str=None, only_keep_last: bool=True):
+def backend_history_manager(
+    history, 
+    generator_name: str, 
+    prompt: str, 
+    mode: str, 
+    evidence_str: str=None,
+    file_path: str=None, 
+    only_keep_last: bool=True):
     # Process prompt with prompt_manager
-    processed_prompt = prompt_manager(prompt, mode, generator_name)
+    processed_prompt = prompt_manager(prompt, mode, generator_name, evidence_str)
 
     if only_keep_last and file_path:
         # Get current file type
@@ -208,12 +228,106 @@ def backend_history_manager(history, generator_name: str, prompt: str, mode: str
             history.append({"role": "user", "content": processed_prompt})
 
 
-def prompt_manager(prompt: str, mode: str, model_name: str):
+def prompt_manager(prompt: str, mode: str, model_name: str, evidence_str: str=None):
 
     if mode == "Agentic-Search":
         if model_name == "Search-R1-3B":
             return SEARCH_R1_PROMPT.format(question=prompt)
         else:
             return prompt
+    elif mode == "RAG":
+        return RAG_PROMPT.format(question=prompt, context=evidence_str)
     else:
         return prompt
+
+def generate_manager(backend_history, frontend_history, generator, generator_name: str, prompt: str, mode: str, file_path: str=None):
+    backend_history_manager(backend_history, generator_name, prompt, mode, file_path)
+    # 流式输出
+    response = ""
+    response_placeholder = st.empty()
+    for chunk in generator.stream_completion(backend_history):
+        response += chunk
+        response_placeholder.markdown(response + "▌")
+    response_placeholder.markdown(response)
+    frontend_history.append({"role": "assistant", "content": response})
+    backend_history.append({"role": "assistant", "content": response})
+    st.rerun()
+
+def omnigen_generate_manager(frontend_history, prompt: str, generator, mode: str, file_path: str=None):
+    output = generator.generate(prompt)
+    frontend_history.append({"role": "assistant", "content": [output]})
+    # with st.chat_message("assistant"):
+    show_file(output["image_url"]["url"], "image", "assistant")
+    st.rerun()
+
+def rag_manager(frontend_history, backend_history, generator, retriever, generator_name: str, query: str, mode: str, file_path: str=None):
+    
+    sources = []
+    evidence_list = retriever.search(query)
+    evidence_str = ""
+    for i, evidence in enumerate(evidence_list):
+        content = evidence['document']['contents']
+        title, text = content.split("\n")[0], content.split("\n")[1]
+        title = title.replace("\"", "")
+        sources.append({"title": title, "text": text})
+        evidence_str += f"Information [{i+1}] {title}\n{text}\n"
+
+        
+
+    backend_history_manager(backend_history, generator_name, query, mode, evidence_str, file_path)
+    response = ""
+    response_placeholder = st.empty()
+    for chunk in generator.stream_completion(backend_history):
+        response += chunk
+        response_placeholder.markdown(response + "▌")
+    response_placeholder.markdown(response)
+    
+    frontend_history.append({"role": "assistant", "content": response, "sources": sources})
+    backend_history.append({"role": "assistant", "content": response})
+    st.rerun()
+
+
+def agentic_search_manager(frontend_history, generator, retriever, generator_name: str, query: str, mode: str, max_turns: int=6):
+    query = prompt_manager(query, mode, generator_name)
+    tokenizer = generator.tokenizer
+    agent = generator.generator
+    special_tokens = generator.special_tokens
+
+    prompt = tokenizer.apply_chat_template(
+        [{"role": "user", "content": query}], add_generation_prompt=True, tokenize=False)
+    target_sequences = [special_tokens["search_end"], special_tokens["answer_end"]]
+
+    if generator_name == "Search-R1-3B":
+        response = search_r1_generate(agent, prompt, target_sequences, retriever, special_tokens, max_turns)
+    else:
+        raise ValueError("不支持的模型")
+    
+        
+    frontend_history.append({"role": "assistant", "content": response})
+    st.rerun()
+
+def search_r1_generate(agent, prompt, target_sequences, retriever, special_tokens, max_turns: int=6):
+    response = ""
+    response_placeholder = st.empty()
+    turn = 0
+    while turn < max_turns: 
+        for chunk in agent.stream_plain_completion(prompt, stop=target_sequences):
+            response += chunk
+            response_placeholder.markdown(response + "▌")
+        if special_tokens["answer_start"] in response:
+            response += special_tokens["answer_end"]
+            break
+        sub_query = response.split(special_tokens["search_start"])[1]
+        evidence_list = retriever.search(sub_query)
+        evidence_str = ""
+        for i, evidence in enumerate(evidence_list):
+            content = evidence['document']['contents']
+            title = content.split("\n")[0]
+            text = "\n".join(content.split("\n")[1:])
+            evidence_str += f"Doc {i+1}(Title: {title}) {text}\n"
+
+        response = f"{response}{special_tokens['search_end']}<information>{evidence_str}</information>"
+        prompt += f"\n\n{response}\n\n"
+        turn += 1
+    return response
+
