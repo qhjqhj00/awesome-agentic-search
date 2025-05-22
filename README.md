@@ -48,6 +48,12 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
  > 👨‍🎓 **Bowen Jin** · 📧 **Jiawei Han** · 🏛️ **UIUC** \
  > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B / 7B · 🎯 **Training**: GRPO, PPO
 
+[An Empirical Study on Reinforcement Learning for Reasoning-Search Interleaved LLM Agents](https://arxiv.org/pdf/2505.15117) ![GitHub Repo stars](https://img.shields.io/github/stars/PeterGriffinJin/Search-R1?style=social)
+
+ > 👨‍🎓 **Bowen Jin** · 📧 **Jiawei Han** · 🏛️ **UIUC** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B / 7B /  14B· 🎯 **Training**: GRPO, PPO
+ 
+ *Notes: a new version of Search-R1.*
 
 [WebThinker: Empowering Large Reasoning Models with Deep Research Capability](https://arxiv.org/abs/2504.21776):![GitHub Repo stars](https://img.shields.io/github/stars/RUC-NLPIR/WebThinker?style=social)
 
@@ -91,6 +97,12 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 
 > 👨‍🎓 **Yaorui Shi** · 📧 **Xiang Wang** · 🏛️ **USTC** \
 > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-3B · 🎯 **Training**: GRPO
+
+[ConvSearch-R1: Enhancing Query Reformulation for Conversational Search with Reasoning via Reinforcement Learning](https://arxiv.org/abs/2505.15776) [![[code]](https://img.shields.io/github/stars/BeastyZ/ConvSearch-R1)](https://github.com/BeastyZ/ConvSearch-R1)
+
+> 👨‍🎓 **Changtai Zhu** · 📧 **Xipeng Qiu** · 🏛️ **FDU** \
+> 📊 **Dataset**: Conversational QA · 🤖 **Model**: Qwen-2.5-3B / Llama-3.2-3B · 🎯 **Training**: SFT, GRPO
+
 
 
 
