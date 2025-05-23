@@ -158,6 +158,10 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 👨‍🎓 **Jason Wei** · 📧 **Amelia Glaese** · 🏛️ **OpenAI** \
 > 📊 **Dataset**: Web Browsing
 
+[HealthBench: Evaluating Large Language Models Towards Improved Human Health](https://arxiv.org/abs/2505.08775) [![[code]](https://img.shields.io/github/stars/openai/simple-evals)](https://github.com/openai/simple-evals)
+
+> 👨‍🎓 **Rahul K. Arora** · 📧 **Karan Singhal** · 🏛️ **OpenAI** \
+> 📊 **Dataset**: Multi-turn Medical QA
 
 ### 🏢 Industry Solutions
 
