@@ -178,6 +178,8 @@ Jina AI: https://jina.ai/deepsearch/
 Metasota: https://metaso.cn/
 
 ## 🎮 Demo
+![Demo](https://github.com/HongjinQian/awesome-agentic-search/blob/main/figure/demo.gif)
+
 We are building a demo page to showcase different agentic search methods and allow hands-on exploration of their capabilities. Each demo will be integrated into a standardized retrieval and web browser interface with comparable settings, enabling comprehensive and fair comparisons across various approaches. This systematic evaluation will help identify strengths and limitations of different methods and advance the state-of-the-art in agentic search.
 
 ## 📝 Slides
