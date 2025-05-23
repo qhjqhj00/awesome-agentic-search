@@ -119,6 +119,12 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 
 
 ###  🔧 Tool Using
+
+[Tool-Star: Empowering LLM-Brained Multi-Tool Reasoner via Reinforcement Learning](https://arxiv.org/abs/2505.16410) [![[code]](https://img.shields.io/github/stars/dongguanting/Tool-Star)](https://github.com/dongguanting/Tool-Star)
+
+> 👨‍🎓 **Guanting Dong** · 📧 **Zhicheng Dou** · 🏛️ **GSAI, RUC** \
+> 📊 **Dataset**: General QA, Multi-Hop QA, Math & Coding · 🤖 **Model**: Qwen-2.5-3B· 🎯 **Training**: SFT,GRPO, PPO
+
 [OTC: Optimal Tool Calls via Reinforcement Learning](https://arxiv.org/pdf/2504.14870)
 
  > 👨‍🎓 **Hongru Wang** · 📧 **Heng Ji** · 🏛️ **CUHK** \
