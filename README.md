@@ -146,8 +146,12 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
  > 👨‍🎓 **Jinming Wu** · 📧 **Zejun Ma** · 🏛️ **BUPT** \
  > 📊 **Dataset**: VQA · 🤖 **Model**: Qwen2.5-VL-Instruct-3B/7B · 🎯 **Training**: GRPO
 
-<!-- ### 📊 Evaluation and Dataset -->
+### 📊 Evaluation and Dataset
 
+[InfoDeepSeek: Benchmarking Agentic Information Seeking for Retrieval-Augmented Generation](https://arxiv.org/abs/2505.15872) [![[code]](https://img.shields.io/github/stars/YunjiaXi/InfoDeepSeek)](https://github.com/YunjiaXi/InfoDeepSeek)
+
+> 👨‍🎓 **Yunjia Xi** · 📧 **Jianghao Lin** · 🏛️ **SJTU** \
+> 📊 **Dataset**: General QA, Multi-Hop QA
 ### 🏢 Industry Solutions
 
 OpenAI's  Deep Research: https://openai.com/index/introducing-deep-research/
