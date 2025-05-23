@@ -1,0 +1,39 @@
+{
+    "vllm": {
+        "Qwen2.5-Omni-7B": {
+            "base_url": "http://127.0.0.1:25900/v1"
+        },
+        "SearchR1-nq_hotpotqa_train-qwen2.5-3b-em-ppo": {
+            "base_url": "http://127.0.0.1:25902/v1",
+            "model_path": "path/to/model",
+            "special_tokens": {
+                "think_start": "<think>",
+                "think_end": "</think>",
+                "search_start": "<search>",
+                "search_end": "</search>",
+                "information_start": "<information>",
+                "information_end": "</information>",
+                "answer_start": "<answer>",
+                "answer_end": "</answer>"
+            }
+        },
+        "InForage-3B":{
+            "base_url": "http://127.0.0.1:25901/v1",
+            "model_path": "path/to/model",
+            "special_tokens": {
+                "think_start": "<think>",
+                "think_end": "</think>",
+                "search_start": "<search>",
+                "search_end": "</search>",
+                "information_start": "<evidence>",
+                "information_end": "</evidence>",
+                "answer_start": "<answer>",
+                "answer_end": "</answer>"
+            }
+        }
+    },
+    "wiki_retriever": {
+        "base_url": "http://127.0.0.1:28709/retrieve"
+    }
+}
+
