@@ -72,6 +72,16 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
  > 👨‍🎓 **Huatong Song** · 📧 **Wayne Xin Zhao** · 🏛️ **GSAI, RUC** \
  > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-7B, Llama-3.1-8B · 🎯 **Training**: SFT, GRPO, REINFORCE++
 
+ [R1-Searcher++: Incentivizing the Dynamic Knowledge Acquisition of LLMs via Reinforcement Learning](https://arxiv.org/abs/2505.17005) [![[code]](https://img.shields.io/github/stars/RUCAIBox/R1-Searcher-plus)](https://github.com/RUCAIBox/R1-Searcher-plus)
+
+  > 👨‍🎓 **Huatong Song** · 📧 **Wayne Xin Zhao** · 🏛️ **GSAI, RUC** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-7B · 🎯 **Training**: SFT, GRPO, REINFORCE++
+
+[SimpleDeepSearcher: Deep Information Seeking via Web-Powered Reasoning Trajectory Synthesis](https://arxiv.org/abs/2505.16834) [![[code]](https://img.shields.io/github/stars/RUCAIBox/SimpleDeepSearcher)](https://github.com/RUCAIBox/SimpleDeepSearcher)
+
+  > 👨‍🎓 **Shuang Sun** · 📧 **Wayne Xin Zhao** · 🏛️ **GSAI, RUC** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-7B / 32B, QwQ-32B · 🎯 **Training**: SFT, DPO, REINFORCE++
+
 [ZeroSearch: Incentivize the Search Capability of LLMs without Searching](https://arxiv.org/abs/2505.04588) [![[code]](https://img.shields.io/github/stars/Alibaba-NLP/ZeroSearch)](https://github.com/Alibaba-NLP/ZeroSearch)
 
  > 👨‍🎓 **Hao Sun** · 📧 **Zile Qiao, Jiayan Guo, Yan Zhang** · 🏛️ **Tongyi Lab** \
