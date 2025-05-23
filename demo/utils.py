@@ -1,10 +1,12 @@
 import streamlit as st
 from pipeline import generator_list, retriever_list
 import os
+import re
 import base64
 import copy
 from prompts import *
-
+import json
+api_config = json.load(open("config/api_config.json", "r"))
 def set_chat_message_style():
     st.markdown(
             """
@@ -29,7 +31,7 @@ def show_file(file_path: str, type: str, role: str="user"):
         else:
             st.markdown(file_path)
                 
-def display_chat_messages():
+def display_chat_messages(special_tokens: dict=None):
         
     for msg in st.session_state.messages_frontend:
         with st.chat_message(msg["role"]):
@@ -42,7 +44,10 @@ def display_chat_messages():
                     else:
                         st.markdown(item["text"])
             else:
-                st.markdown(msg["content"])
+                if  special_tokens is not None:
+                    st.markdown(format_special_tokens(msg["content"], special_tokens), unsafe_allow_html=True)
+                else:
+                    st.markdown(msg["content"])
             if msg.get("sources"):
                 cols = st.columns(3)
                 for i, source in enumerate(msg["sources"]):
@@ -64,40 +69,40 @@ def mode_check(generator_name: str, retriever_name: str = None) -> tuple[bool, s
     """
     # Get mode selection from sidebar
     mode = st.sidebar.selectbox(
-        "选择模式",
+        "Select Mode",
         ["Generation", "RAG", "Agentic-Search", "MM"],
         index=0
     )
 
     if mode == "Generation":
-        not_allowed_models = ["Search-R1-3B", "WebThinker"]
+        not_allowed_models = ["Search-R1-3B", "WebThinker", "InForage-3B"]
         if generator_name in not_allowed_models:
-            st.sidebar.error("Generation模式不支持Agentic-Search模型")
-            return False, "Generation模式不支持Agentic-Search模型"
+            st.sidebar.error("Generation mode does not support Agentic-Search models")
+            return False, "Generation mode does not support Agentic-Search models"
         # Generation mode only needs a generator
         if generator_name is None:
-            st.sidebar.error("Generation模式需要选择一个generator")
-            return False, "Generation模式需要选择一个generator"
+            st.sidebar.error("Generation mode requires a generator")
+            return False, "Generation mode requires a generator"
         return mode, ""
         
     elif mode == "RAG":
         # RAG mode needs both generator and retriever
         if generator_name is None:
-            st.sidebar.error("RAG模式需要选择generator")
-            return False, "RAG模式需要选择generator"
+            st.sidebar.error("RAG mode requires a generator")
+            return False, "RAG mode requires a generator"
         if retriever_name is None:
-            st.sidebar.error("RAG模式需要选择retriever")
-            return False, "RAG模式需要选择retriever"
+            st.sidebar.error("RAG mode requires a retriever")
+            return False, "RAG mode requires a retriever"
         return mode, ""
         
     elif mode == "Agentic-Search":
         if retriever_name is None:
-            st.sidebar.error("Agentic-Search模式需要选择retriever")
-            return False, "Agentic-Search模式需要选择retriever"
+            st.sidebar.error("Agentic-Search mode requires a retriever")
+            return False, "Agentic-Search mode requires a retriever"
         # Agentic-Search mode needs specific models
-        allowed_models = ["Search-R1-3B", "WebThinker"]
+        allowed_models = ["Search-R1-3B", "WebThinker", "InForage-3B"]
         if generator_name not in allowed_models:
-            error_msg = f"Agentic-Search模式仅支持以下模型: {', '.join(allowed_models)}"
+            error_msg = f"Agentic-Search mode only supports the following models: {', '.join(allowed_models)}"
             st.sidebar.error(error_msg)
             return False, error_msg
         return mode, ""
@@ -106,25 +111,25 @@ def mode_check(generator_name: str, retriever_name: str = None) -> tuple[bool, s
         # MM mode needs specific models
         allowed_models = ["Qwen2.5-Omni-7B"]
         if generator_name not in allowed_models:
-            error_msg = f"MM模式仅支持以下模型: {', '.join(allowed_models)}"
+            error_msg = f"MM mode only supports the following models: {', '.join(allowed_models)}"
             st.sidebar.error(error_msg)
             return False, error_msg
         return mode, ""
         
-    return False, "未知的模式"
+    return False, "Unknown mode"
 
 
 
 def show_options():
     with st.sidebar:
-        st.header("选项")
+        st.header("Options")
         use_generator = st.checkbox("Generator", value=True)
-        generator_name = st.selectbox("选择 Generator", options=list(generator_list.keys()))
+        generator_name = st.selectbox("Select Generator", options=list(generator_list.keys()))
         generator = generator_list[generator_name]
 
         use_retriever = st.checkbox("Retriever", value=False)
         if use_retriever:
-            retriever_name = st.selectbox("选择 Retriever", options=list(retriever_list.keys()))
+            retriever_name = st.selectbox("Select Retriever", options=list(retriever_list.keys()))
             retriever = retriever_list[retriever_name]
         else:
             retriever = None
@@ -134,7 +139,7 @@ def show_options():
 
 def show_file_uploader():
     with st.sidebar:
-        uploaded_file = st.file_uploader("上传文件", type=["txt", "png", "wav"])
+        uploaded_file = st.file_uploader("Upload File", type=["txt", "png", "wav"])
         
         if uploaded_file is not None:
             os.makedirs("data/tmp", exist_ok=True)
@@ -170,7 +175,7 @@ def frontend_history_manager(history, prompt: str, model_name: str, file_path: s
             ]
             history.append({"role": "user", "content": content})
         else:
-            raise ValueError("文件类型不支持")
+            raise ValueError("Unsupported file type")
     else:
         if prompt:
             history.append({"role": "user", "content": prompt})
@@ -233,6 +238,8 @@ def prompt_manager(prompt: str, mode: str, model_name: str, evidence_str: str=No
     if mode == "Agentic-Search":
         if model_name == "Search-R1-3B":
             return SEARCH_R1_PROMPT.format(question=prompt)
+        elif model_name == "InForage-3B":
+            return inforage_prompt.format(question=prompt)
         else:
             return prompt
     elif mode == "RAG":
@@ -287,7 +294,7 @@ def rag_manager(frontend_history, backend_history, generator, retriever, generat
     st.rerun()
 
 
-def agentic_search_manager(frontend_history, generator, retriever, generator_name: str, query: str, mode: str, max_turns: int=6):
+def agentic_search_manager(frontend_history, generator, retriever, generator_name: str, query: str, mode: str, max_turns: int=8):
     query = prompt_manager(query, mode, generator_name)
     tokenizer = generator.tokenizer
     agent = generator.generator
@@ -297,7 +304,7 @@ def agentic_search_manager(frontend_history, generator, retriever, generator_nam
         [{"role": "user", "content": query}], add_generation_prompt=True, tokenize=False)
     target_sequences = [special_tokens["search_end"], special_tokens["answer_end"]]
 
-    if generator_name == "Search-R1-3B":
+    if generator_name in ["Search-R1-3B", "InForage-3B"]:
         response = search_r1_generate(agent, prompt, target_sequences, retriever, special_tokens, max_turns)
     else:
         raise ValueError("不支持的模型")
@@ -313,7 +320,7 @@ def search_r1_generate(agent, prompt, target_sequences, retriever, special_token
     while turn < max_turns: 
         for chunk in agent.stream_plain_completion(prompt, stop=target_sequences):
             response += chunk
-            response_placeholder.markdown(response + "▌")
+            response_placeholder.markdown(format_special_tokens(response, special_tokens) + "▌", unsafe_allow_html=True)
         if special_tokens["answer_start"] in response:
             response += special_tokens["answer_end"]
             break
@@ -326,8 +333,46 @@ def search_r1_generate(agent, prompt, target_sequences, retriever, special_token
             text = "\n".join(content.split("\n")[1:])
             evidence_str += f"Doc {i+1}(Title: {title}) {text}\n"
 
-        response = f"{response}{special_tokens['search_end']}<information>{evidence_str}</information>"
-        prompt += f"\n\n{response}\n\n"
+        prompt += f"\n\n{response}{special_tokens['search_end']}{special_tokens['information_start']}{evidence_str}{special_tokens['information_end']}\n\n"
+        response = f"{response}{special_tokens['search_end']}{special_tokens['information_start']}{evidence_str}{special_tokens['information_end']}"
+        
         turn += 1
     return response
 
+def format_special_tokens(text: str, special_tokens: dict) -> str:
+    """Format text with special tokens using markdown styling
+    
+    Args:
+        text: Input text containing special tokens
+        special_tokens: Dictionary mapping token names to token strings
+        
+    Returns:
+        Formatted text with markdown styling
+    """
+    # Extract token pairs
+    think_start = special_tokens["think_start"]
+    think_end = special_tokens["think_end"] 
+    search_start = special_tokens["search_start"]
+    search_end = special_tokens["search_end"]
+    answer_start = special_tokens["answer_start"] 
+    answer_end = special_tokens["answer_end"]
+    info_start = special_tokens["information_start"]
+    info_end = special_tokens["information_end"]
+    
+    # Split on tokens and format each section
+    formatted = text
+    formatted = re.sub(r'\n+', '<br><br>', formatted)
+    # Replace all special tokens with HTML tags
+    formatted = formatted.replace(think_start, '<div style="font-style: italic; color: #666;">')
+    formatted = formatted.replace(think_end, '</div><br>')
+    
+    formatted = formatted.replace(search_start, '<div style="font-weight: bold; font-size: 1.2em;">Search: <code>')
+    formatted = formatted.replace(search_end, '</code></div>')
+    
+    formatted = formatted.replace(answer_start, '<h2 style="margin-top: 20px;">Answer: ')
+    formatted = formatted.replace(answer_end, '</h2>')
+    
+    formatted = formatted.replace(info_start, '<div style="border-bottom: 1px solid #ccc; padding: 10px 0; margin: 10px 0; color: #666;"><div style="margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Information found: </div>')
+    formatted = formatted.replace(info_end, '</div>')
+        
+    return formatted

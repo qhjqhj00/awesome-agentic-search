@@ -4,13 +4,13 @@ st.set_page_config(page_title="Agentic Chat Demo", page_icon="🧠", layout="wid
 
 from agent.api_agent import Agent
 import json
-
+from pipeline import agentic_searcher
 from utils import *
 import copy
 with open("config/api_config.json", "r") as f:
     api_config = json.load(f)
 
-# Streamlit 页面设置
+# Streamlit page settings
 
 st.title("🧠 Agentic Chat Demo")
 set_chat_message_style()
@@ -21,7 +21,10 @@ if "messages_frontend" not in st.session_state:
 if "messages_backend" not in st.session_state:
     st.session_state.messages_backend = []
 
-display_chat_messages()
+if hasattr(generator, "special_tokens"):
+    display_chat_messages(generator.special_tokens)
+else:
+    display_chat_messages()
 # Add clear history button to sidebar
 with st.sidebar:
     if st.button("Clear History"):
@@ -37,7 +40,7 @@ if not mode:
 file_path = show_file_uploader()
 
 
-if prompt := st.chat_input("请输入你的问题..."):
+if prompt := st.chat_input("Enter your question..."):
    
     with st.chat_message("user"):
         if file_path:
@@ -47,26 +50,24 @@ if prompt := st.chat_input("请输入你的问题..."):
     
 
     frontend_history_manager(st.session_state.messages_frontend, prompt, generator_name, file_path)
-    # 选择调用对象
+    # Select pipeline to call
     if use_generator and use_retriever:
-        # 预留 rag_pipeline
+        # Reserved for rag_pipeline
         if mode == "RAG":
             rag_manager(st.session_state.messages_frontend, st.session_state.messages_backend, generator, retriever, generator_name, prompt, mode, file_path)
         elif mode == "Agentic-Search":
             agentic_search_manager(st.session_state.messages_frontend, generator, retriever, generator_name, prompt, mode)
         else:
-            raise ValueError("Pipeline 暂未实现")
+            raise ValueError("Pipeline not implemented yet")
     elif use_generator:
-        # 使用 generator agent 流式输出
+        # Use generator agent for streaming output
         with st.chat_message("assistant"):
-            # 构造历史消息用于多轮对话
+            # Construct history messages for multi-turn dialogue
             if generator_name == "omnigen-v2":
                 omnigen_generate_manager(st.session_state.messages_frontend, prompt, generator, mode, file_path)
             else:
                 generate_manager(st.session_state.messages_backend, st.session_state.messages_frontend, generator, generator_name, prompt, mode, file_path)
     else:
         with st.chat_message("assistant"):
-            st.markdown("_请至少选择 Generator_")
-            raise ValueError("请至少选择 Generator")
-
-
+            st.markdown("_Please select at least one Generator_")
+            raise ValueError("Please select at least one Generator")

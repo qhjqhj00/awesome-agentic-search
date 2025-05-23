@@ -21,7 +21,7 @@ class omnigen_agent:
         _placeholder.markdown(info)
 
     def generate(self, prompt):
-        self.notify("正在生成图片，这可能需要一些时间...")
+        self.notify("Generating image, this may take some time...")
         # Make API request
         try:
             response = requests.post(
@@ -35,10 +35,10 @@ class omnigen_agent:
             if result.get("success"):
                 return {"type": "image_url", "image_url": {"url": result["image_path"]}}
             else:
-                return {"type": "text", "text": f"生成失败: {result.get('error', '未知错误')}"}
+                return {"type": "text", "text": f"Generation failed: {result.get('error', 'Unknown error')}"}
                 
         except Exception as e:
-            return {"type": "text", "text": f"请求失败: {str(e)}"}
+            return {"type": "text", "text": f"Request failed: {str(e)}"}
 
 class wiki_retriever:
     def __init__(self, url: str):
@@ -137,6 +137,7 @@ with open("config/api_config.json", "r") as f:
 generator_list = {
     "Qwen2.5-Omni-7B": get_vllm_agent("Qwen2.5-Omni-7B"),
     "Search-R1-3B": get_agentic_searcher("SearchR1-nq_hotpotqa_train-qwen2.5-3b-em-ppo"),
+    "InForage-3B": get_agentic_searcher("InForage-3B"),
     "omnigen-v2": omnigen_agent(api_config["omnigen"]["base_url"]),
     "gpt-4o-mini": get_openrouter_agent("gpt-4o-mini"),
     "gpt-4o": get_openrouter_agent("gpt-4o"),
@@ -146,5 +147,3 @@ generator_list = {
 retriever_list = {
     "Wikipedia": wiki_retriever(api_config["wiki_retriever"]["base_url"]),
 }
-
-
