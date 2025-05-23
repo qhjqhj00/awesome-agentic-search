@@ -178,9 +178,29 @@ Jina AI: https://jina.ai/deepsearch/
 Metasota: https://metaso.cn/
 
 ## 🎮 Demo
+We are building a demo page to showcase different agentic search methods and allow hands-on exploration of their capabilities. Each demo will be integrated into a standardized retrieval and web browser interface with comparable settings, enabling comprehensive and fair comparisons across various approaches. This systematic evaluation will help identify strengths and limitations of different methods and advance the state-of-the-art in agentic search. 
+
+Currently, it looks like this:
 ![Demo](https://github.com/qhjqhj00/awesome-agentic-search/blob/main/figure/demo.gif)
 
-We are building a demo page to showcase different agentic search methods and allow hands-on exploration of their capabilities. Each demo will be integrated into a standardized retrieval and web browser interface with comparable settings, enabling comprehensive and fair comparisons across various approaches. This systematic evaluation will help identify strengths and limitations of different methods and advance the state-of-the-art in agentic search.
+You can run the demo by serving the models via vllm:
+```bash
+vllm serve path_to_your_model --port 25900 --host 127.0.0.1
+```
+
+Then, build a search server, for example, use [this](https://github.com/PeterGriffinJin/Search-R1/blob/main/retrieval_launch.sh):
+
+```bash
+bash retrieval_launch.sh
+```
+
+Config your serve address in `config/demo_config.json`, modify model list [here](https://github.com/qhjqhj00/awesome-agentic-search/blob/main/demo/pipeline.py#L137).
+
+Run the demo by:
+```bash
+streamlit run demo/app.py
+```
+
 
 ## 📝 Slides
 We maintain a collection of 📊 paper presentation slides on Overleaf to facilitate learning and knowledge sharing in the agentic search community. Each presentation consists of 3-5 slides that concisely introduce key aspects of a paper, including motivation, methodology, and main results. These slides serve as quick references for understanding important works in the field and can be used for self-study, teaching, or research presentations.
