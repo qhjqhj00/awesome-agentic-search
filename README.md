@@ -152,6 +152,13 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 
 > 👨‍🎓 **Yunjia Xi** · 📧 **Jianghao Lin** · 🏛️ **SJTU** \
 > 📊 **Dataset**: General QA, Multi-Hop QA
+
+[BrowseComp: A Simple Yet Challenging Benchmark for Browsing Agents](https://arxiv.org/abs/2504.12516) [![[code]](https://img.shields.io/github/stars/openai/simple-evals)](https://github.com/openai/simple-evals)
+
+> 👨‍🎓 **Jason Wei** · 📧 **Amelia Glaese** · 🏛️ **OpenAI** \
+> 📊 **Dataset**: Web Browsing
+
+
 ### 🏢 Industry Solutions
 
 OpenAI's  Deep Research: https://openai.com/index/introducing-deep-research/
