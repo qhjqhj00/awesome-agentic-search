@@ -170,6 +170,12 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 
 
 
+### 📚 Perspective and Survey
+[Agentic Information Retrieval](https://arxiv.org/pdf/2410.09713)
+
+> 👨‍🎓 **Weinan Zhang** ·  🏛️ **SJTU** 
+
+
 ### 🏢 Industry Solutions
 
 OpenAI's  Deep Research: https://openai.com/index/introducing-deep-research/
