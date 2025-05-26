@@ -163,6 +163,13 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 👨‍🎓 **Rahul K. Arora** · 📧 **Karan Singhal** · 🏛️ **OpenAI** \
 > 📊 **Dataset**: Multi-turn Medical QA
 
+[ManuSearch: Democratizing Deep Search in Large Language Models with a Transparent and Open Multi-Agent Framework](https://arxiv.org/abs/2505.18105) 
+
+> 👨‍🎓 **Lisheng Huang** · 📧 **Wayne Xin Zhao** · 🏛️ **GSAI, RUC** \
+> 📊 **Dataset**: Web Browsing
+
+
+
 ### 🏢 Industry Solutions
 
 OpenAI's  Deep Research: https://openai.com/index/introducing-deep-research/
