@@ -114,6 +114,10 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 📊 **Dataset**: Conversational QA · 🤖 **Model**: Qwen-2.5-3B / Llama-3.2-3B · 🎯 **Training**: SFT, GRPO
 
 
+[Process vs. Outcome Reward: Which is Better for Agentic RAG Reinforcement Learning](https://arxiv.org/abs/2505.14069) [![[code]](https://img.shields.io/github/stars/wlzhang2020/ReasonRAG)](https://github.com/wlzhang2020/ReasonRAG)
+
+> 👨‍🎓 **Wenlin Zhang** · 📧 **Xiangyu Zhao** · 🏛️ **CityUHK** \
+> 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-7B · 🎯 **Training**: DPO
 
 
 ### 🔄 Workflow-based
