@@ -120,6 +120,8 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-7B · 🎯 **Training**: DPO
 
 
+
+
 ### 🔄 Workflow-based
 [Search-o1: Agentic Search-Enhanced Large Reasoning Models](https://arxiv.org/abs/2501.05366):  [![[code]](https://img.shields.io/github/stars/sunnynexus/Search-o1?style=social)](https://github.com/sunnynexus/Search-o1)
 
@@ -131,6 +133,10 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 👨‍🎓 **Junde Wu** · 📧 **Yuyuan Liu** · 🏛️ **Oxford University** \
 > 📊 **Dataset**: Complex Task · 🤖 **Model**: APIs
 
+[Coding Agents with Multimodal Browsing are Generalist Problem Solvers](https://arxiv.org/abs/2505.15776) [![[code]](https://img.shields.io/github/stars/adityasoni9998/OpenHands-Versa)](https://github.com/adityasoni9998/OpenHands-Versa)
+
+> 👨‍🎓 **Aditya Bharat Soni** · 📧 **Graham Neubigo** · 🏛️ **CMU** \
+> 📊 **Dataset**: Complex Task · 🤖 **Model**: claude-3-7-sonnet 
 
 ###  🔧 Tool Using
 
@@ -149,6 +155,13 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 
  > 👨‍🎓 **Jinming Wu** · 📧 **Zejun Ma** · 🏛️ **BUPT** \
  > 📊 **Dataset**: VQA · 🤖 **Model**: Qwen2.5-VL-Instruct-3B/7B · 🎯 **Training**: GRPO
+
+[Multimodal DeepResearcher: Generating Text-Chart Interleaved Reports From Scratch with Agentic Framework]
+(https://arxiv.org/abs/2506.02454
+
+
+> 👨‍🎓 **Zhaorui Yang** · 📧 **Bo Zhang** · 🏛️ **ZJU** \
+> 📊 **Dataset**: Report Generation 
 
 ### 📊 Evaluation and Dataset
 
