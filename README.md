@@ -119,7 +119,10 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 👨‍🎓 **Wenlin Zhang** · 📧 **Xiangyu Zhao** · 🏛️ **CityUHK** \
 > 📊 **Dataset**: General QA, Multi-Hop QA · 🤖 **Model**: Qwen-2.5-7B · 🎯 **Training**: DPO
 
+[WebDancer: Towards Autonomous Information Seeking Agency](https://arxiv.org/abs/2505.22648) [![[code]](https://img.shields.io/github/stars/Alibaba-NLP/WebAgent)](https://github.com/Alibaba-NLP/WebAgent)
 
+ > 👨‍🎓 **Jialong Wu** · 📧 **Wenbiao Yin, Yong Jiang** · 🏛️ **Tongyi Lab** \
+ > 📊 **Dataset**: Complex Task · 🤖 **Model**: Qwen-2.5-7B / 32B, QwQ-32B · 🎯 **Training**: DAPO
 
 
 ### 🔄 Workflow-based
@@ -185,6 +188,10 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 👨‍🎓 **Lisheng Huang** · 📧 **Wayne Xin Zhao** · 🏛️ **GSAI, RUC** \
 > 📊 **Dataset**: Web Browsing
 
+[WebWalker: Benchmarking LLMs in Web Traversal](https://arxiv.org/abs/2501.07572) [![[code]](https://img.shields.io/github/stars/Alibaba-NLP/WebAgent)](https://github.com/Alibaba-NLP/WebAgent)
+
+ > 👨‍🎓 **Jialong Wu** · 📧 **Deyu Zhou, Yong Jiang** · 🏛️ **SEU, Tongyi Lab** \
+ > 📊 **Dataset**: Web Browsing
 
 
 ### 📚 Perspective and Survey
