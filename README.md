@@ -159,8 +159,7 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
  > 👨‍🎓 **Jinming Wu** · 📧 **Zejun Ma** · 🏛️ **BUPT** \
  > 📊 **Dataset**: VQA · 🤖 **Model**: Qwen2.5-VL-Instruct-3B/7B · 🎯 **Training**: GRPO
 
-[Multimodal DeepResearcher: Generating Text-Chart Interleaved Reports From Scratch with Agentic Framework]
-(https://arxiv.org/abs/2506.02454)
+[Multimodal DeepResearcher: Generating Text-Chart Interleaved Reports From Scratch with Agentic Framework](https://arxiv.org/abs/2506.02454)
 
 
 > 👨‍🎓 **Zhaorui Yang** · 📧 **Bo Zhang** · 🏛️ **ZJU** \
