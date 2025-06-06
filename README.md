@@ -160,7 +160,7 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
  > 📊 **Dataset**: VQA · 🤖 **Model**: Qwen2.5-VL-Instruct-3B/7B · 🎯 **Training**: GRPO
 
 [Multimodal DeepResearcher: Generating Text-Chart Interleaved Reports From Scratch with Agentic Framework]
-(https://arxiv.org/abs/2506.02454
+(https://arxiv.org/abs/2506.02454)
 
 
 > 👨‍🎓 **Zhaorui Yang** · 📧 **Bo Zhang** · 🏛️ **ZJU** \
