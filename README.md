@@ -124,6 +124,10 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
  > 👨‍🎓 **Jialong Wu** · 📧 **Wenbiao Yin, Yong Jiang** · 🏛️ **Tongyi Lab** \
  > 📊 **Dataset**: Complex Task · 🤖 **Model**: Qwen-2.5-7B / 32B, QwQ-32B · 🎯 **Training**: DAPO
 
+[ReSearch: Learning to Reason with Search for LLMs via Reinforcement Learning](https://arxiv.org/abs/2503.19470) [![[code]](https://img.shields.io/github/stars/Agent-RL/ReCall)](https://github.com/Agent-RL/ReCall)
+
+ > 👨‍🎓 **Mingyang Chen** · 📧 **Fan Yang** · 🏛️ **Baichuan** \
+ > 📊 **Dataset**: Multi-Hop QA · 🤖 **Model**: Qwen-2.5-7B / 32B · 🎯 **Training**: GRPO
 
 ### 🔄 Workflow-based
 [Search-o1: Agentic Search-Enhanced Large Reasoning Models](https://arxiv.org/abs/2501.05366):  [![[code]](https://img.shields.io/github/stars/sunnynexus/Search-o1?style=social)](https://github.com/sunnynexus/Search-o1)
