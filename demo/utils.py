@@ -6,7 +6,9 @@ import base64
 import copy
 from prompts import *
 import json
+
 api_config = json.load(open("config/api_config.json", "r"))
+
 def set_chat_message_style():
     st.markdown(
             """
@@ -52,7 +54,9 @@ def display_chat_messages(special_tokens: dict=None):
                 cols = st.columns(3)
                 for i, source in enumerate(msg["sources"]):
                     with cols[i % 3].expander(f"[{i+1}] **{source['title']}**"):
-                        st.markdown(source["text"])
+                        st.markdown(source["snippet"])
+                        if source.get("url"):
+                            st.markdown(f"[🔗 Source Link]({source['url']})")
 
 
 def mode_check(generator_name: str, retriever_name: str = None) -> tuple[bool, str]:
@@ -75,7 +79,7 @@ def mode_check(generator_name: str, retriever_name: str = None) -> tuple[bool, s
     )
 
     if mode == "Generation":
-        not_allowed_models = ["Search-R1-3B", "WebThinker", "InForage-3B"]
+        not_allowed_models = ["Search-R1-3B", "WebThinker", "InForage"]
         if generator_name in not_allowed_models:
             st.sidebar.error("Generation mode does not support Agentic-Search models")
             return False, "Generation mode does not support Agentic-Search models"
@@ -100,7 +104,7 @@ def mode_check(generator_name: str, retriever_name: str = None) -> tuple[bool, s
             st.sidebar.error("Agentic-Search mode requires a retriever")
             return False, "Agentic-Search mode requires a retriever"
         # Agentic-Search mode needs specific models
-        allowed_models = ["Search-R1-3B", "WebThinker", "InForage-3B"]
+        allowed_models = ["Search-R1-3B", "WebThinker", "InForage"]
         if generator_name not in allowed_models:
             error_msg = f"Agentic-Search mode only supports the following models: {', '.join(allowed_models)}"
             st.sidebar.error(error_msg)
@@ -238,7 +242,7 @@ def prompt_manager(prompt: str, mode: str, model_name: str, evidence_str: str=No
     if mode == "Agentic-Search":
         if model_name == "Search-R1-3B":
             return SEARCH_R1_PROMPT.format(question=prompt)
-        elif model_name == "InForage-3B":
+        elif model_name == "InForage":
             return inforage_prompt.format(question=prompt)
         else:
             return prompt
@@ -273,11 +277,13 @@ def rag_manager(frontend_history, backend_history, generator, retriever, generat
     evidence_list = retriever.search(query)
     evidence_str = ""
     for i, evidence in enumerate(evidence_list):
-        content = evidence['document']['contents']
-        title, text = content.split("\n")[0], content.split("\n")[1]
+        content = "\n".join(evidence['reranked_content'])
+        title = evidence['title']
+        url = evidence['url']
+        snippet = evidence['snippet']
         title = title.replace("\"", "")
-        sources.append({"title": title, "text": text})
-        evidence_str += f"Information [{i+1}] {title}\n{text}\n"
+        sources.append({"title": title, "snippet": snippet, "content": content, "url": url})
+        evidence_str += f"Information [{i+1}] {title}\n{content}\n"
 
         
 
@@ -304,7 +310,7 @@ def agentic_search_manager(frontend_history, generator, retriever, generator_nam
         [{"role": "user", "content": query}], add_generation_prompt=True, tokenize=False)
     target_sequences = [special_tokens["search_end"], special_tokens["answer_end"]]
 
-    if generator_name in ["Search-R1-3B", "InForage-3B"]:
+    if generator_name in ["Search-R1-3B", "InForage"]:
         response = search_r1_generate(agent, prompt, target_sequences, retriever, special_tokens, max_turns)
     else:
         raise ValueError("不支持的模型")
@@ -328,10 +334,9 @@ def search_r1_generate(agent, prompt, target_sequences, retriever, special_token
         evidence_list = retriever.search(sub_query)
         evidence_str = ""
         for i, evidence in enumerate(evidence_list):
-            content = evidence['document']['contents']
-            title = content.split("\n")[0]
-            text = "\n".join(content.split("\n")[1:])
-            evidence_str += f"Doc {i+1}(Title: {title}) {text}\n"
+            content = "\n".join(evidence['reranked_content'])
+            title = evidence['title']
+            evidence_str += f"Doc {i+1}(Title: {title}) {content}\n"
 
         prompt += f"\n\n{response}{special_tokens['search_end']}{special_tokens['information_start']}{evidence_str}{special_tokens['information_end']}\n\n"
         response = f"{response}{special_tokens['search_end']}{special_tokens['information_start']}{evidence_str}{special_tokens['information_end']}"

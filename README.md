@@ -169,6 +169,11 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 👨‍🎓 **Zhaorui Yang** · 📧 **Bo Zhang** · 🏛️ **ZJU** \
 > 📊 **Dataset**: Report Generation 
 
+[VideoDeepResearch: Long Video Understanding With Agentic Tool Using](https://arxiv.org/abs/2506.10821) [![[code]](https://img.shields.io/github/stars/yhy-2000/VideoDeepResearch)](https://github.com/yhy-2000/VideoDeepResearch)
+
+> 👨‍🎓 **Huaying Yuan** · 📧 **Zheng Liu, Zhicheng Dou** · 🏛️ **GSAI, RUC** \
+> 📊 **Dataset**: LVU
+
 ### 📊 Evaluation and Dataset
 
 [InfoDeepSeek: Benchmarking Agentic Information Seeking for Retrieval-Augmented Generation](https://arxiv.org/abs/2505.15872) [![[code]](https://img.shields.io/github/stars/YunjiaXi/InfoDeepSeek)](https://github.com/YunjiaXi/InfoDeepSeek)

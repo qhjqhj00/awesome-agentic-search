@@ -6,6 +6,7 @@ import time
 import transformers
 import torch
 torch.classes.__path__ = []
+
 class omnigen_agent:
     def __init__(self, api_url: str):
         self.api_url = api_url
@@ -68,6 +69,44 @@ class wiki_retriever:
             print(f"Search failed: {str(e)}")
             return []
  
+class web_retriever:
+    def __init__(self, url: str, agent):
+        self.search_url = url
+        self.query_rewrite_agent = agent
+
+    def search(self, query: str, topk: int = 3, query_rewrite: bool = True):
+        if query_rewrite:
+            query = self.query_rewrite(query)
+            print(f"Rewritten query: {query}")
+        try:
+            # Make API request to search endpoint
+            response = requests.get(
+                self.search_url,
+                params={"query": query, "topk": topk}
+            )
+            response.raise_for_status()
+            
+            # Parse results
+            results = response.json()
+            if results and "results" in results:
+                return results["results"]
+            return []
+            
+        except Exception as e:
+            print(f"Search failed: {str(e)}")
+            return []
+    
+    def query_rewrite(self, query: str):
+        prompt = """Rewrite the following query to be more suitable for web search engines while maintaining the same language. 
+        Make it more specific and include relevant keywords. 
+        Keep the original intent but optimize it for search engines.
+        
+        Original query: {query}
+        
+        Rewritten query:"""
+        
+        response = self.query_rewrite_agent.chat_completion(prompt.format(query=query))
+        return response
 
 class agentic_searcher:
     def __init__(self, 
@@ -135,15 +174,17 @@ with open("config/api_config.json", "r") as f:
     api_config = json.load(f)
 
 generator_list = {
-    "Qwen2.5-Omni-7B": get_vllm_agent("Qwen2.5-Omni-7B"),
-    "Search-R1-3B": get_agentic_searcher("SearchR1-nq_hotpotqa_train-qwen2.5-3b-em-ppo"),
-    "InForage-3B": get_agentic_searcher("InForage-3B"),
-    "omnigen-v2": omnigen_agent(api_config["omnigen"]["base_url"]),
+    # "Qwen2.5-Omni-7B": get_vllm_agent("Qwen2.5-Omni-7B"),
+    # "Search-R1-3B": get_agentic_searcher("SearchR1-nq_hotpotqa_train-qwen2.5-3b-em-ppo"),
+    "InForage": get_agentic_searcher("Qwen2.5-72B-Instruct"),
+    # "omnigen-v2": omnigen_agent(api_config["omnigen"]["base_url"]),
+    "Qwen2.5-72B-Instruct": get_vllm_agent("Qwen2.5-72B-Instruct"),
     "gpt-4o-mini": get_openrouter_agent("gpt-4o-mini"),
-    "gpt-4o": get_openrouter_agent("gpt-4o"),
+    # "gpt-4o": get_openrouter_agent("gpt-4o"),
     "deepseek-chat": get_deepseek_chat("deepseek-chat"),   
 }
 
 retriever_list = {
-    "Wikipedia": wiki_retriever(api_config["wiki_retriever"]["base_url"]),
+    # "Wikipedia": wiki_retriever(api_config["wiki_retriever"]["base_url"]),
+    "Web": web_retriever(api_config["web_retriever"]["base_url"], generator_list["Qwen2.5-72B-Instruct"]),
 }
