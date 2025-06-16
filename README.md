@@ -201,6 +201,11 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
  > 👨‍🎓 **Jialong Wu** · 📧 **Deyu Zhou, Yong Jiang** · 🏛️ **SEU, Tongyi Lab** \
  > 📊 **Dataset**: Web Browsing
 
+[DeepResearch Bench: A Comprehensive Benchmark for Deep Research Agents](https://arxiv.org/abs/2506.11763) [![[code]](https://img.shields.io/github/stars/Ayanami0730/deep_research_bench)](https://github.com/Ayanami0730/deep_research_bench)
+
+> 👨‍🎓 **Mingxuan Du** · 📧 **Zhendong Mao** · 🏛️ **USTC** \
+> 📊 **Dataset**: Report Generation
+
 
 ### 📚 Perspective and Survey
 [Agentic Information Retrieval](https://arxiv.org/pdf/2410.09713)
