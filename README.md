@@ -114,6 +114,17 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 📊 **Dataset**: Conversational QA · 🤖 **Model**: Qwen-2.5-3B / Llama-3.2-3B · 🎯 **Training**: SFT, GRPO
 
 
+[Tool-Star: Empowering LLM-Brained Multi-Tool Reasoner via Reinforcement Learning](https://arxiv.org/abs/2505.16410) [![[code]](https://img.shields.io/github/stars/dongguanting/Tool-Star)](https://github.com/dongguanting/Tool-Star)
+
+> 👨‍🎓 **Guanting Dong** · 📧 **Zhicheng Dou** · 🏛️ **GSAI, RUC** \
+> 📊 **Dataset**: General QA, Multi-Hop QA, Math & Coding · 🤖 **Model**: Qwen-2.5-3B· 🎯 **Training**: SFT,GRPO, PPO
+
+[OTC: Optimal Tool Calls via Reinforcement Learning](https://arxiv.org/pdf/2504.14870)
+
+ > 👨‍🎓 **Hongru Wang** · 📧 **Heng Ji** · 🏛️ **CUHK** \
+ > 📊 **Dataset**: General QA, Multi-Hop QA, Math & Coding · 🤖 **Model**: Qwen-2.5-3B / 7B· 🎯 **Training**: GRPO, PPO
+
+
 [Process vs. Outcome Reward: Which is Better for Agentic RAG Reinforcement Learning](https://arxiv.org/abs/2505.14069) [![[code]](https://img.shields.io/github/stars/wlzhang2020/ReasonRAG)](https://github.com/wlzhang2020/ReasonRAG)
 
 > 👨‍🎓 **Wenlin Zhang** · 📧 **Xiangyu Zhao** · 🏛️ **CityUHK** \
@@ -145,17 +156,9 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 👨‍🎓 **Aditya Bharat Soni** · 📧 **Graham Neubigo** · 🏛️ **CMU** \
 > 📊 **Dataset**: Complex Task · 🤖 **Model**: claude-3-7-sonnet 
 
-###  🔧 Tool Using
-
-[Tool-Star: Empowering LLM-Brained Multi-Tool Reasoner via Reinforcement Learning](https://arxiv.org/abs/2505.16410) [![[code]](https://img.shields.io/github/stars/dongguanting/Tool-Star)](https://github.com/dongguanting/Tool-Star)
-
-> 👨‍🎓 **Guanting Dong** · 📧 **Zhicheng Dou** · 🏛️ **GSAI, RUC** \
-> 📊 **Dataset**: General QA, Multi-Hop QA, Math & Coding · 🤖 **Model**: Qwen-2.5-3B· 🎯 **Training**: SFT,GRPO, PPO
-
-[OTC: Optimal Tool Calls via Reinforcement Learning](https://arxiv.org/pdf/2504.14870)
-
- > 👨‍🎓 **Hongru Wang** · 📧 **Heng Ji** · 🏛️ **CUHK** \
- > 📊 **Dataset**: General QA, Multi-Hop QA, Math & Coding · 🤖 **Model**: Qwen-2.5-3B / 7B· 🎯 **Training**: GRPO, PPO
+[AgentOrchestra: A Hierarchical Multi-Agent Framework for General-Purpose Task Solving](https://arxiv.org/abs/2506.11763) [![[code]](https://img.shields.io/github/stars/SkyworkAI/DeepResearchAgent)](https://github.com/SkyworkAI/DeepResearchAgent)
+> 👨‍🎓 **Wentao Zhang** · 📧 **Bo An** · 🏛️ **Skywork AI** \
+> 📊 **Dataset**: Complex Task · 🤖 **Model**: claude-3-7-sonnet  
 
 ### 🖼️ Multi-Modal
 [Multimodal-Search-R1: Incentivizing LMMs to Search](https://kimingng.notion.site/MMSearch-R1-Incentivizing-LMMs-to-Search-1bcce992031880b2bc64fde13ef83e2a) [![[code]](https://img.shields.io/github/stars/EvolvingLMMs-Lab/multimodal-search-r1)](https://github.com/EvolvingLMMs-Lab/multimodal-search-r1)
