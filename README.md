@@ -215,6 +215,9 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 
 > 👨‍🎓 **Weinan Zhang** ·  🏛️ **SJTU** 
 
+[Towards AI Search Paradigm](https://arxiv.org/abs/2506.17188)
+
+> 👨‍🎓 **Yuchen Li** · 📧 **Dawei Yin** · 🏛️ **BAIDU** \
 
 ### 🏢 Industry Solutions
 
