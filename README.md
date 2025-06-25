@@ -219,6 +219,11 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 
 > 👨‍🎓 **Yuchen Li** · 📧 **Dawei Yin** · 🏛️ **BAIDU** \
 
+[From Web Search towards Agentic Deep Research: Incentivizing Search with Reasoning Agents](https://arxiv.org/abs/2506.18959)
+
+> 👨‍🎓 **Weizhi Zhang** · 📧 **Weizhi Zhang** · 🏛️ **UIC** \
+
+
 ### 🏢 Industry Solutions
 
 OpenAI's  Deep Research: https://openai.com/index/introducing-deep-research/
