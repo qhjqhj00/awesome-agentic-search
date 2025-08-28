@@ -210,6 +210,11 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 📊 **Dataset**: Report Generation
 
 
+[Mind2Web 2: Evaluating Agentic Search with Agent-as-a-Judge](https://arxiv.org/abs/2506.21506) [![[code]](https://img.shields.io/github/stars/OSU-NLP-Group/Mind2Web-2)](https://github.com/OSU-NLP-Group/Mind2Web-2)
+
+> 👨‍🎓 **Boyu Gou, Zanming Huang, Yuting Ning** · 📧 **Yu Su, Huan Sun** · 🏛️ **OSU, Amazon AGI** \
+> 📊 **Dataset**: Complex Task
+
 ### 📚 Perspective and Survey
 [Agentic Information Retrieval](https://arxiv.org/pdf/2410.09713)
 
