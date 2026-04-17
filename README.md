@@ -243,6 +243,8 @@ Jina AI: https://jina.ai/deepsearch/
 
 Metasota: https://metaso.cn/
 
+Not Human Search: https://nothumansearch.ai/ — Different angle from the others: NHS is a search engine *consumed by* agents (via MCP at `/mcp` or REST at `/api/v1/search`) rather than an agent-assisted human search. Indexes 8,000+ agent-readable services scored on 7 agentic-readiness signals. Open-source (MIT).
+
 ## 🎮 Demo
 We are building a demo page to showcase different agentic search methods and allow hands-on exploration of their capabilities. Each demo will be integrated into a standardized retrieval and web browser interface with comparable settings, enabling comprehensive and fair comparisons across various approaches. This systematic evaluation will help identify strengths and limitations of different methods and advance the state-of-the-art in agentic search. 
 
