@@ -189,6 +189,11 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 > 👨‍🎓 **Jason Wei** · 📧 **Amelia Glaese** · 🏛️ **OpenAI** \
 > 📊 **Dataset**: Web Browsing
 
+[ClawBench: Can AI Agents Complete Everyday Online Tasks?](https://arxiv.org/abs/2604.08523) [![[code]](https://img.shields.io/github/stars/reacher-z/ClawBench)](https://github.com/reacher-z/ClawBench)
+
+> 👨‍🎓 **Yuxuan Zhang et al.** \
+> 📊 **Dataset**: Live Web Browsing, multi-step everyday online workflows
+
 [HealthBench: Evaluating Large Language Models Towards Improved Human Health](https://arxiv.org/abs/2505.08775) [![[code]](https://img.shields.io/github/stars/openai/simple-evals)](https://github.com/openai/simple-evals)
 
 > 👨‍🎓 **Rahul K. Arora** · 📧 **Karan Singhal** · 🏛️ **OpenAI** \
