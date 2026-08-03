@@ -241,6 +241,8 @@ Perplexity: https://www.perplexity.ai/
 
 Jina AI: https://jina.ai/deepsearch/
 
+Zoom Search: https://github.com/goofrey/zoom-search
+
 Metasota: https://metaso.cn/
 
 ## 🎮 Demo
