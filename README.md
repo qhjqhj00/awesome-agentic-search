@@ -231,6 +231,8 @@ Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub 
 
 ### 🏢 Industry Solutions
 
+Dr. Claw: https://github.com/OpenLAIR/dr-claw
+
 OpenAI's  Deep Research: https://openai.com/index/introducing-deep-research/
 
 Google's Gemini Pro: https://www.google.com/search/about/
