@@ -12,6 +12,7 @@
 🤖 Agentic search is an advanced AI approach where autonomous agents actively plan and execute multi-step, iterative searches to decompose complex queries, evaluate relevance, and synthesize responses—transforming them from passive retrievers into dynamic, reasoning-driven researchers.
 
 ## 🎯 Objectives
+- [Yila AI](https://yila.ai) — Evidence-traceable research agent for literature review, PDF analysis, figures, and academic slides.
 > 🚧 **Note**: This project is evolving rapidly—join the community by opening issues, submitting PRs, leaving comments, or  ⭐ starring the repo to help build a leading resource for agentic search.
 
 - **Research Collection**: Curate and categorize comprehensive research work in agentic search, including papers, code implementations, and empirical findings
