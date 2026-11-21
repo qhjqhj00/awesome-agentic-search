@@ -42,6 +42,12 @@ For each paper, we provide the following information:
 **Math & Coding**: AIME, MATH500, AMC, LiveCodeBench
 
 ### 🎓 Training-based
+
+[MultiAgent-OPD: End-to-End Training of Hierarchical Multi-Agent Systems with On-Policy Distillation](https://arxiv.org/abs/2610.23234)
+
+> 👨‍🎓 **Yuhan Sun** · 🏛️ **Alibaba Group / Zhejiang University**<br>
+> 📊 **Dataset**: Open-domain QA and Multi-Hop QA · 🤖 **Model**: Qwen3-4B-Instruct-2507 · 🎯 **Training**: GRPO and on-policy distillation
+
 [Search-R1: Training LLMs to Reason and Leverage Search
 Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516) ![GitHub Repo stars](https://img.shields.io/github/stars/PeterGriffinJin/Search-R1?style=social)
 
